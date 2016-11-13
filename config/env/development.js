@@ -6,11 +6,11 @@ var defaultEnvConfig = require('./default'),
 
 module.exports = {
   db: {
-    uri: 'mongodb://127.0.0.1/athens-dev',
+    uri: 'mongodb://hack:hack@ec2-54-186-5-157.us-west-2.compute.amazonaws.com:27017/athens-dev',
     //uri: 'mongodb://opt/bitnami/mongodb/tmp/mongodb-27017.sock:27017/athens',
     options: {
-      user: 'root',
-      pass: 'nOiXa5SrKJbq'
+      user: 'mauricio',
+      pass: 'password'
     },
     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
