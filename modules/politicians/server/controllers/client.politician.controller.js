@@ -15,11 +15,11 @@ var path = require('path'),
  * */
 exports.get = function (req, res) {
     // Politician ID to get
-    var politicianId = req.param.id;
+    var politicianId = req.params.id;
 
     /* listing the politicians */
     Politician
-        .findOne({ _id: ObjectId( politicianId) })
+        .findById( politicianId )
         .lean()
         .exec(function (err, politicians) {
             // Checking for any errors..

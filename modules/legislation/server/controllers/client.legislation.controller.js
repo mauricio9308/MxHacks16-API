@@ -18,7 +18,7 @@ exports.get = function(req, res){
     var legislationId = req.params.id;
 
     Legislation
-        .findById({ _id: ObjectId( legislationId ) })
+        .findById(legislationId)
         .populate('politicians')
         .lean()
         .exec(function (err, legislations) {
