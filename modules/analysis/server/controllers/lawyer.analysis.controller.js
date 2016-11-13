@@ -19,7 +19,7 @@ exports.post = function (req, res) {
     adminHandler(req, res, function () {
 
         // Legislation ID to get
-        var legislationId = req.param.legislation;
+        var legislationId = req.params.legislation;
 
         /* we check if there's any previous analysis */
         Analysis
