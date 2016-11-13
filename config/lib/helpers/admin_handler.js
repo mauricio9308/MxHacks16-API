@@ -9,17 +9,17 @@ var AppConfig = require(path.resolve('./config/app.config.js'));
 exports.handle = function(req, res, superCallback, adminCallback){
 
     /* checking if a user is logged in */
-    if (!req.user && (req.adminType === undefined || req.adminType === null)) {
+    if (!req.user && (req.type === undefined || req.type === null)) {
         return res.status(403).send({
             message: 'No tienes permisos para acceder a este recurso'
         });
     }
 
     // Checks the current user type
-    if(req.adminType === AppConfig.USER_SUPER_ADMIN){
+    if(req.type === AppConfig.USER_SUPER_ADMIN){
         /* list of the cities in the server */
         return superCallback();
-    }else if (req.adminType === AppConfig.USER_LAWYER){
+    }else if (req.type === AppConfig.USER_LAWYER){
         return adminCallback();
     }else{
         console.log('Unauthorized');
@@ -37,14 +37,14 @@ exports.handle = function(req, res, superCallback, adminCallback){
  * */
 exports.handleSuperAdmin = function(req, res, superAdminCallback ){
     /* checking if a user is logged in */
-    if (!req.user && (req.adminType === undefined || req.adminType === null)) {
+    if (!req.user && (req.type === undefined || req.type === null)) {
         return res.status(403).send({
             message: 'No tienes permisos para acceder a este recurso'
         });
     }
 
     // Checks the current user type
-    if(req.adminType === AppConfig.USER_SUPER_ADMIN){
+    if(req.type === AppConfig.USER_SUPER_ADMIN){
         /* list of the cities in the server */
         return superAdminCallback();
     }else{
@@ -63,14 +63,14 @@ exports.handleSuperAdmin = function(req, res, superAdminCallback ){
  * */
 exports.handleLawyer = function(req, res, lawyerCallback ){
     /* checking if a user is logged in */
-    if (!req.user && (req.adminType === undefined || req.adminType === null)) {
+    if (!req.user && (req.type === undefined || req.type === null)) {
         return res.status(403).send({
             message: 'No tienes permisos para acceder a este recurso'
         });
     }
 
     // Checks the current user type
-    if(req.adminType === AppConfig.USER_LAWYER){
+    if(req.type === AppConfig.USER_LAWYER){
         return lawyerCallback();
     }else{
         console.log('Unauthorized');

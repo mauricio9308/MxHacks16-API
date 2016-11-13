@@ -15,6 +15,7 @@ var AnalysisSchema = new Schema({
     },
     legislation : {
         type: Schema.ObjectId,
+        ref: 'Legislation',
         required: 'Debes seleccionar una legislación para el análisis'
     },
     owner: {
