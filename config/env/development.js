@@ -5,12 +5,13 @@ var defaultEnvConfig = require('./default'),
     appConfig = require(path.resolve('./config/app.config.js'));
 
 module.exports = {
+  host: '0.0.0.0',
+  port: 8080,
   db: {
     uri: 'mongodb://hack:hack@ec2-54-186-5-157.us-west-2.compute.amazonaws.com:27017/athens-dev',
-    //uri: 'mongodb://opt/bitnami/mongodb/tmp/mongodb-27017.sock:27017/athens',
     options: {
-      user: 'mauricio',
-      pass: 'password'
+      user: '',
+      pass: ''
     },
     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false

@@ -27,8 +27,7 @@ module.exports = function(app) {
         .get(legislationClientController.get);
 
     // Setting the admin API for the legislations
-    app.route(config.adminRoutePrefix + '/legislation')
-        .get(legislationAdminController.list)
+    app.route(config.adminRoutePrefix + '/legislation/:id')
         .delete(legislationAdminController.remove)
         .post(legislationAdminController.create)
         .put(legislationAdminController.update);
