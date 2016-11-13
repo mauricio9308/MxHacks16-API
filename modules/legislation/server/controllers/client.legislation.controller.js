@@ -131,7 +131,7 @@ exports.addNegativeVote = function( req, res ){
                 });
             }
 
-            return res.status(200);
+            return res.json({ message: 'ok'});
         });
 };
 
