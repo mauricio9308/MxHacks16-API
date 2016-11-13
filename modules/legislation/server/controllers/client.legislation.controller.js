@@ -72,13 +72,12 @@ exports.addPositiveVote = function( req, res ){
     console.log('Add positive vote...');
 
     // Updates the information in the db
-    Legislation.update(
+    Legislation.findOneAndUpdate(
         // Update query
         { _id : legislation },
         // Update operation
-        { $inc: { positiveVotes : 1 } },
-        // Callback function
-        function (updateError, rawError) {
+        { $inc: { positiveVotes : 1 } })
+        .exec(function (updateError, rawError) {
             // Validate any possible execution error
             if (updateError) {
                 return res.status(400).send({
@@ -87,8 +86,8 @@ exports.addPositiveVote = function( req, res ){
             }
 
             return res.status(200);
-        }
-    );
+        })
+    ;
 };
 
 /**
@@ -98,15 +97,15 @@ exports.addNegativeVote = function( req, res ){
     // Setting the filter
     var legislation = req.param.legislation;
 
-    console.log('Add negative vote...');
+    console.log('Add negative vote...' + legislation );
 
     // Updates the information in the db
-    Legislation.update(
+    Legislation.findOneAndUpdate(
         // Update query
         { _id : legislation },
         // Update operation
-        { $inc: { negativeVotes : -1 } },
-        // Callback function
+        { $inc: { negativeVotes : -1 }})
+        .exec(// Callback function
         function (updateError, rawError) {
             // Validate any possible execution error
             if (updateError) {
@@ -116,7 +115,6 @@ exports.addNegativeVote = function( req, res ){
             }
 
             return res.status(200);
-        }
-    );
+        });
 };
 
