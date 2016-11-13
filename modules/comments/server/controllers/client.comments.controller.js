@@ -22,7 +22,7 @@ exports.post = function (req, res) {
     Comment
         .find({legislation: legislationId, owner: req.user._id})
         .lean()
-        .execute(function (err, previousComment) {
+        .exec(function (err, previousComment) {
             // Checking for any errors..
             if (err) {
                 return res.status(400).send({
@@ -70,8 +70,9 @@ exports.list = function (req, res) {
     /* listing the politicians */
     Comment
         .find(listFilter)
+        .populate('owner')
         .lean()
-        .execute(function (err, comments) {
+        .exec(function (err, comments) {
             // Checking for any errors..
             if (err) {
                 return res.status(400).send({
