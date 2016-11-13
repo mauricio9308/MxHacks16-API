@@ -45,6 +45,7 @@ exports.post = function (req, res) {
 
                 // Setting the owner
                 newAnalysis.owner = req.user._id;
+                newAnalysis.legislation = legislationId;
 
                 // We proceed with the save of the analysis
                 newAnalysis.save(function (err) {
