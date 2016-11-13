@@ -21,7 +21,7 @@ exports.list = function (req, res) {
     Analysis
         .find({ legislation : legislationToQuery })
         .lean()
-        .execute(function (err, analysis) {
+        .exec(function (err, analysis) {
             // Checking for any errors..
             if (err) {
                 return res.status(400).send({
