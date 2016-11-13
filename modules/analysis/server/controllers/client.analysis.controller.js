@@ -17,8 +17,6 @@ exports.list = function (req, res) {
     // Legislation to get the analysis
     var legislationToQuery = req.params.legislation;
 
-    // Analysis to get
-    var analysisToGet = req.param.id;
     /* Getting the analysis of the legislation */
     Analysis
         .find({ legislation : legislationToQuery })
