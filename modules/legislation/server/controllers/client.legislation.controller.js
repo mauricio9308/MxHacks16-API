@@ -65,10 +65,14 @@ exports.list = function (req, res) {
  * Adds a positive vote to the legislation entry
  * */
 exports.addPositiveVote = function( req, res ){
+
+    // Setting the filter
+    var legislation = req.param.legislation;
+
     // Updates the information in the db
     Legislation.update(
         // Update query
-        {},
+        { _id : legislation },
         // Update operation
         { $inc: { positiveVotes : 1 } },
         // Callback function
@@ -89,10 +93,13 @@ exports.addPositiveVote = function( req, res ){
  * Adds a negative vote to the legislation entry
  * */
 exports.addNegativeVote = function( req, res ){
+    // Setting the filter
+    var legislation = req.param.legislation;
+
     // Updates the information in the db
     Legislation.update(
         // Update query
-        {},
+        { _id : legislation },
         // Update operation
         { $inc: { negativeVotes : 1 } },
         // Callback function
