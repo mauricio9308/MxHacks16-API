@@ -24,7 +24,7 @@ module.exports = function(app) {
         .get(legislationClientController.list);
 
     app.route(config.clientRoutePrefix + '/legislation/:id')
-        .get(legislationClientController.get)
+        .get(legislationClientController.get);
 
     // Voting routes
     app.route(config.clientRoutePrefix + '/legislation/:id/vote/positive')

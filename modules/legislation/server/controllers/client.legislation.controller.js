@@ -69,6 +69,8 @@ exports.addPositiveVote = function( req, res ){
     // Setting the filter
     var legislation = req.param.legislation;
 
+    console.log('Add positive vote...');
+
     // Updates the information in the db
     Legislation.update(
         // Update query
@@ -96,12 +98,14 @@ exports.addNegativeVote = function( req, res ){
     // Setting the filter
     var legislation = req.param.legislation;
 
+    console.log('Add negative vote...');
+
     // Updates the information in the db
     Legislation.update(
         // Update query
         { _id : legislation },
         // Update operation
-        { $inc: { negativeVotes : 1 } },
+        { $inc: { negativeVotes : -1 } },
         // Callback function
         function (updateError, rawError) {
             // Validate any possible execution error
