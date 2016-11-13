@@ -1,0 +1,9 @@
+{
+  "name": "Fixin",
+  "description": "Fixin api",
+  "homepage": "http://www.fixin.com.mx/",
+  "license": "MIT",
+  "dependencies": {
+    "zepto": "1.0"
+  }
+}

@@ -1,0 +1,7 @@
+.idea/
+LICENSE.md
+README.md
+access.log
+bower_components/
+node_modules/
+public/
