@@ -18,8 +18,8 @@ module.exports = function(app) {
     // Setting the client API for the comments
     app.route(config.clientRoutePrefix + '/analysis/:legislation')
         .post(analysisLawyersController.post);
+
     app.route(config.clientRoutePrefix + '/analysis/:legislation/:id')
-        .post(analysisLawyersController.get)
         .delete(analysisLawyersController.remove)
         .put(analysisLawyersController.update);
 

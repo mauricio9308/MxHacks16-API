@@ -25,7 +25,17 @@ var LegislationSchema = new Schema({
     analysis: [{
         type: Schema.ObjectId,
         ref: 'Analysis'
-    }]
+    }],
+    positiveVotes: {
+        type: Number,
+        default: 0,
+        min: 0
+    },
+    negativeVotes : {
+        type: Number,
+        default: 0,
+        min: 0
+    }
 });
 
 // Registering the schema in Mongo

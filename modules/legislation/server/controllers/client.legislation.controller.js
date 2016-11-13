@@ -56,8 +56,56 @@ exports.list = function (req, res) {
                 });
             }
 
-            // Returning the list of legislations...
+            // Returning the list of legislation...
             return res.json(legislations);
         });
+};
+
+/**
+ * Adds a positive vote to the legislation entry
+ * */
+exports.addPositiveVote = function( req, res ){
+    // Updates the information in the db
+    Legislation.update(
+        // Update query
+        {},
+        // Update operation
+        { $inc: { positiveVotes : 1 } },
+        // Callback function
+        function (updateError, rawError) {
+            // Validate any possible execution error
+            if (updateError) {
+                return res.status(400).send({
+                    message: errorHandler.getErrorMessage(updateError)
+                });
+            }
+
+            return res.status(200);
+        }
+    );
+};
+
+/**
+ * Adds a negative vote to the legislation entry
+ * */
+exports.addNegativeVote = function( req, res ){
+    // Updates the information in the db
+    Legislation.update(
+        // Update query
+        {},
+        // Update operation
+        { $inc: { negativeVotes : 1 } },
+        // Callback function
+        function (updateError, rawError) {
+            // Validate any possible execution error
+            if (updateError) {
+                return res.status(400).send({
+                    message: errorHandler.getErrorMessage(updateError)
+                });
+            }
+
+            return res.status(200);
+        }
+    );
 };
 

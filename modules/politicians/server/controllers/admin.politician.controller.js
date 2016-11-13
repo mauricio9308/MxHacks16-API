@@ -128,7 +128,8 @@ exports.update = function (req, res) {
         // Building the update object
         var updateObject = {
             name : updatePayload.name,
-            party: updatePayload.party
+            party: updatePayload.party,
+            description: updatePayload.description
         };
 
         // Updates the information in the db

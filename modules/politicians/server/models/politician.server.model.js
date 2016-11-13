@@ -17,6 +17,10 @@ var PoliticianSchema = new Schema({
         type: String,
         require: 'Debes proporcionar una imagen de perfil'
     },
+    description: {
+        type: String,
+        require: 'Debes proporcionar una descripción'
+    },
     party: {
         type: String,
         required: 'Debes proporcionar un partido para este politico'

@@ -24,12 +24,20 @@ module.exports = function(app) {
         .get(legislationClientController.list);
 
     app.route(config.clientRoutePrefix + '/legislation/:id')
-        .get(legislationClientController.get);
+        .get(legislationClientController.get)
 
-    // Setting the admin API for the legislations
+    // Voting routes
+    app.route(config.clientRoutePrefix + '/legislation/:id/vote/positive')
+        .post(legislationClientController.addPositiveVote);
+    app.route(config.clientRoutePrefix + '/legislation/:id/vote/negative')
+        .post(legislationClientController.addNegativeVote);
+
+    app.route(config.clientRoutePrefix + '/legislation/lawyer')
+        .post(legislationAdminController.create);
+
+    // Setting the admin API for the legislation
     app.route(config.adminRoutePrefix + '/legislation/:id')
         .delete(legislationAdminController.remove)
-        .post(legislationAdminController.create)
         .put(legislationAdminController.update);
 
     // Finish by binding the param validator middleware

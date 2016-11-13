@@ -22,7 +22,7 @@ module.exports = function(app) {
     app.route(config.clientRoutePrefix + '/politician/:id')
         .get(politicianClientController.get);
 
-    // Setting the admin API for the legislations
+    // Setting the admin API for the legislation
     app.route(config.adminRoutePrefix + '/politician')
         .get(politicianAdminController.list)
         .delete(politicianAdminController.remove)

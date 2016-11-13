@@ -23,6 +23,7 @@ module.exports = function(app) {
     // Setting the admin API for the comments
     app.route(config.adminRoutePrefix + '/comments/:legislation')
         .get(commentsAdminController.list);
+
     // Deletes the comments
     app.route(config.adminRoutePrefix + '/comments/:legislation/:id')
         .delete(commentsAdminController.remove)
