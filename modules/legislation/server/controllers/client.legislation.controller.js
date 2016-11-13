@@ -21,7 +21,7 @@ exports.get = function(req, res){
         .findOne({id: legislationId})
         .populate('politicians')
         .lean()
-        .execute(function (err, legislations) {
+        .exec(function (err, legislations) {
             // Checking for any errors..
             if (err) {
                 return res.status(400).send({
