@@ -19,7 +19,7 @@ exports.get = function (req, res) {
 
     /* listing the politicians */
     Politician
-        .findById(politicianId)
+        .findOne({ _id: ObjectId( politicianId) })
         .lean()
         .exec(function (err, politicians) {
             // Checking for any errors..
