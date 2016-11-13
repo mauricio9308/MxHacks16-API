@@ -101,7 +101,7 @@ exports.addPositiveVote = function( req, res ){
 
                     console.log('Update...');
 
-                    return res.status(200);
+                    return res.json({ message: 'ok'});
                 });
         });
 
