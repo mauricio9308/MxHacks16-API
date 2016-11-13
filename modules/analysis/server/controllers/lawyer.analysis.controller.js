@@ -51,7 +51,7 @@ exports.post = function (req, res) {
                     // Checking any save error
                     if (err) {
                         return res.status(400).send({
-                            message: errorHandler.getErrorMessage(err)
+                            message: 'ERROR: ' + err
                         });
                     }
 
