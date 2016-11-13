@@ -48,7 +48,7 @@ exports.list = function (req, res) {
         .populate('politicians analysis')
         .sort({name: 1})
         .lean()
-        .execute(function (err, legislations) {
+        .exec(function (err, legislations) {
             // Checking for any errors..
             if (err) {
                 return res.status(400).send({
