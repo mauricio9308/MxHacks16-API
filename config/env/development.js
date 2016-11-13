@@ -6,7 +6,8 @@ var defaultEnvConfig = require('./default'),
 
 module.exports = {
   db: {
-    uri: 'mongodb://127.0.0.1/athens-dev',
+    //uri: 'mongodb://127.0.0.1/athens-dev',
+    uri: 'mongodb://opt/bitnami/mongodb/tmp/mongodb-27017.sock:27017/athens',
     options: {
       user: '',
       pass: ''
