@@ -11,13 +11,15 @@ module.exports = function(app) {
     // User Routes
     var analysisAdminController = require('../controllers/admin.analysis.controller');
     var analysisLawyersController = require('../controllers/lawyer.analysis.controller');
+    var analysisClientController = require('../controllers/client.analysis.controller');
 
     //Adding cors for the user profile server routes
     app.use(cors());
 
     // Setting the client API for the comments
     app.route(config.clientRoutePrefix + '/analysis/:legislation')
-        .post(analysisLawyersController.post);
+        .post(analysisLawyersController.post)
+        .get(analysisClientController.list);
 
     app.route(config.clientRoutePrefix + '/analysis/:legislation/:id')
         .delete(analysisLawyersController.remove)
