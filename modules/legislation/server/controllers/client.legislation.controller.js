@@ -45,8 +45,8 @@ exports.list = function (req, res) {
     /* listing the legislations */
     Legislation
         .find(listFilter)
-        .sort({name: 1})
         .populate('politicians analysis')
+        .sort({name: 1})
         .lean()
         .execute(function (err, legislations) {
             // Checking for any errors..
