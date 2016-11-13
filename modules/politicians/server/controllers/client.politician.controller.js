@@ -21,7 +21,7 @@ exports.get = function (req, res) {
     Politician
         .findOne({id: politicianId})
         .lean()
-        .execute(function (err, politicians) {
+        .exec(function (err, politicians) {
             // Checking for any errors..
             if (err) {
                 return res.status(400).send({
@@ -46,7 +46,7 @@ exports.list = function (req, res) {
         .find(listFilter)
         .sort({name: 1})
         .lean()
-        .execute(function (err, politicians) {
+        .exec(function (err, politicians) {
             // Checking for any errors..
             if (err) {
                 return res.status(400).send({
