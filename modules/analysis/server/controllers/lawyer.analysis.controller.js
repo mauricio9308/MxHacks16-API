@@ -25,7 +25,7 @@ exports.post = function (req, res) {
         Analysis
             .find({legislation: legislationId, owner: req.user._id})
             .lean()
-            .execute(function (err, previousAnalysis) {
+            .exec(function (err, previousAnalysis) {
                 // Checking for any errors..
                 if (err) {
                     return res.status(400).send({

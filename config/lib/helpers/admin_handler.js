@@ -63,14 +63,14 @@ exports.handleSuperAdmin = function(req, res, superAdminCallback ){
  * */
 exports.handleLawyer = function(req, res, lawyerCallback ){
     /* checking if a user is logged in */
-    if (!req.user && (req.type === undefined || req.type === null)) {
+    if (!req.user && (req.user.type === undefined || req.user.type === null)) {
         return res.status(403).send({
             message: 'No tienes permisos para acceder a este recurso'
         });
     }
 
     // Checks the current user type
-    if(req.type === AppConfig.USER_LAWYER){
+    if(req.user.type === AppConfig.USER_LAWYER){
         return lawyerCallback();
     }else{
         console.log('Unauthorized');
